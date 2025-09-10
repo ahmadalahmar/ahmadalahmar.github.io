@@ -6,17 +6,18 @@
 }
 
 :root {
-    --primary-color: #00ffff;
-    --secondary-color: #ff00ff;
-    --accent-color: #ffff00;
-    --bg-dark: #0a0a0a;
-    --bg-darker: #050505;
-    --text-light: #ffffff;
-    --text-gray: #cccccc;
-    --text-dark: #666666;
-    --gradient-primary: linear-gradient(135deg, #00ffff, #ff00ff);
-    --gradient-secondary: linear-gradient(135deg, #ff00ff, #ffff00);
-    --gradient-accent: linear-gradient(135deg, #ffff00, #00ffff);
+    /* Robotics & Drones light theme */
+    --primary-color: #0ea5e9;            /* sky blue */
+    --secondary-color: #06b6d4;          /* cyan */
+    --accent-color: #f59e0b;             /* amber */
+    --bg-dark: #f7fafc;                  /* page background (light) */
+    --bg-darker: #ffffff;                /* cards/nav/footer (lighter) */
+    --text-light: #0f172a;               /* primary text on light */
+    --text-gray: #475569;                /* secondary text */
+    --text-dark: #334155;                /* subtle text */
+    --gradient-primary: linear-gradient(135deg, #0ea5e9, #06b6d4);
+    --gradient-secondary: linear-gradient(135deg, #06b6d4, #f59e0b);
+    --gradient-accent: linear-gradient(135deg, #f59e0b, #0ea5e9);
 }
 
 body {
@@ -38,11 +39,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.25);
 }
 
 .nav-container {
@@ -115,12 +116,15 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    background: radial-gradient(1200px 500px at 50% 0%, rgba(14, 165, 233, 0.08), transparent),
+                radial-gradient(800px 400px at 10% 20%, rgba(6, 182, 212, 0.08), transparent),
+                radial-gradient(800px 400px at 90% 30%, rgba(245, 158, 11, 0.06), transparent);
 }
 
 .hero-background {
@@ -138,8 +142,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.8"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.6"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.7"/><circle cx="90" cy="90" r="1" fill="white" opacity="0.5"/><circle cx="10" cy="70" r="1" fill="white" opacity="0.9"/></svg>') repeat;
-    animation: twinkle 4s ease-in-out infinite alternate;
+    display: none;
 }
 
 .twinkling {
@@ -148,8 +151,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="0.5" fill="%2300ffff" opacity="0.8"/><circle cx="70" cy="60" r="0.5" fill="%23ff00ff" opacity="0.6"/><circle cx="50" cy="90" r="0.5" fill="%23ffff00" opacity="0.7"/></svg>') repeat;
-    animation: twinkle 2s ease-in-out infinite alternate;
+    display: none;
 }
 
 @keyframes twinkle {
@@ -381,7 +383,7 @@ section {
 
 /* About Section */
 .about {
-    background: var(--bg-darker);
+    background: var(--bg-dark);
 }
 
 .about-content {
@@ -407,9 +409,9 @@ section {
 .stat {
     text-align: center;
     padding: 1.5rem;
-    background: rgba(0, 255, 255, 0.1);
+    background: #ffffff;
     border-radius: 10px;
-    border: 1px solid rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(14, 165, 233, 0.2);
 }
 
 .stat-number {
@@ -436,13 +438,13 @@ section {
 .image-placeholder {
     width: 100%;
     height: 100%;
-    background: var(--gradient-primary);
+    background: #f1f5f9;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    color: var(--bg-dark);
+    color: var(--secondary-color);
     position: relative;
     overflow: hidden;
 }
@@ -525,7 +527,7 @@ section {
 
 /* Projects Section */
 .projects {
-    background: var(--bg-darker);
+    background: var(--bg-dark);
 }
 
 .projects-grid {
@@ -535,10 +537,10 @@ section {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: #ffffff;
     border-radius: 15px;
     overflow: hidden;
-    border: 1px solid rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(14, 165, 233, 0.2);
     transition: all 0.3s ease;
     position: relative;
 }
@@ -557,17 +559,17 @@ section {
 }
 
 .project-card:hover::before {
-    opacity: 0.1;
+    opacity: 0.08;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
 }
 
 .project-image {
     height: 200px;
-    background: var(--bg-dark);
+    background: #f1f5f9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -827,7 +829,7 @@ section {
     background: var(--bg-darker);
     padding: 2rem 0;
     text-align: center;
-    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    border-top: 1px solid rgba(14, 165, 233, 0.25);
 }
 
 .footer-content p {
