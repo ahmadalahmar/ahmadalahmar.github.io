@@ -28,17 +28,12 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Add click event listeners to navigation links (only handle hash links on same page)
+// Add click event listeners to navigation links
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        // If link starts with '#' or points to current page with a hash, smooth scroll
-        if (href && (href.startsWith('#') || href.startsWith(window.location.pathname + '#'))) {
-            e.preventDefault();
-            const targetId = href.includes('#') ? href.split('#')[1] : href.substring(1);
-            scrollToSection(targetId);
-        }
-        // Otherwise, allow normal navigation to other pages
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        scrollToSection(targetId);
     });
 });
 
