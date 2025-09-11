@@ -1461,6 +1461,208 @@ section {
     line-height: 1.6;
 }
 
+/* Blog Styling */
+.blog-submission {
+    padding: 80px 0;
+    background: var(--bg-dark);
+}
+
+.blog-submission h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.blog-submission > p {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.submission-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.submission-option {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.submission-option:hover {
+    transform: translateY(-5px);
+}
+
+.submission-option h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.submission-option h3 i {
+    color: var(--primary-color);
+}
+
+.submission-option p {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+}
+
+.blog-submission-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.blog-submission-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-submission-section > p {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+.submission-forms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.submission-form {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.submission-form h3 {
+    color: var(--text-light);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.submission-form h3 i {
+    color: var(--primary-color);
+}
+
+.blog-card {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-category-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.blog-content h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.blog-content p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-tag {
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--primary-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.blog-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.blog-link:hover {
+    color: var(--secondary-color);
+}
+
 /* Additional responsive styles for detailed pages */
 @media (max-width: 768px) {
     .page-title {
@@ -1492,5 +1694,13 @@ section {
 
     .social-links-grid {
         flex-direction: column;
+    }
+
+    .submission-options {
+        grid-template-columns: 1fr;
+    }
+
+    .submission-forms {
+        grid-template-columns: 1fr;
     }
 }

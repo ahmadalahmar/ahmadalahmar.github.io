@@ -156,6 +156,92 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Blog Submission Section -->
+            <div class="blog-submission-section" id="blog-submission">
+                <h2>Blog Contributions</h2>
+                <p>Have an interesting engineering project or insight to share? I'd love to feature your work on my blog!</p>
+                
+                <div class="submission-forms">
+                    <div class="submission-form">
+                        <h3><i class="fas fa-paper-plane"></i> Submit an Article</h3>
+                        <form class="blog-submission-form" id="articleSubmissionForm">
+                            <div class="form-group">
+                                <label for="submission-title">Article Title *</label>
+                                <input type="text" id="submission-title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="submission-excerpt">Brief Description *</label>
+                                <textarea id="submission-excerpt" name="excerpt" required rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="submission-content">Article Content *</label>
+                                <textarea id="submission-content" name="content" required rows="6" placeholder="Write your article content here..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="submission-category">Category *</label>
+                                <select id="submission-category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="tutorial">Tutorial</option>
+                                    <option value="career">Career</option>
+                                    <option value="personal">Personal</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="submission-tags">Tags (comma-separated)</label>
+                                <input type="text" id="submission-tags" name="tags" placeholder="e.g., robotics, AI, engineering">
+                            </div>
+                            <div class="form-group">
+                                <label for="submission-media">Media Files (images/videos)</label>
+                                <input type="file" id="submission-media" name="media" multiple accept="image/*,video/*">
+                            </div>
+                            <div class="form-group">
+                                <label for="submission-contact">Your Contact Information *</label>
+                                <input type="email" id="submission-contact" name="contact" required placeholder="your.email@example.com">
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                <span>Submit Article</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="submission-form" id="project-showcase">
+                        <h3><i class="fas fa-video"></i> Showcase a Project</h3>
+                        <form class="project-submission-form" id="projectSubmissionForm">
+                            <div class="form-group">
+                                <label for="project-title">Project Title *</label>
+                                <input type="text" id="project-title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-description">Project Description *</label>
+                                <textarea id="project-description" name="description" required rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-technologies">Technologies Used</label>
+                                <input type="text" id="project-technologies" name="technologies" placeholder="e.g., Arduino, Python, CAD">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-media">Project Media (photos/videos) *</label>
+                                <input type="file" id="project-media" name="media" multiple accept="image/*,video/*" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-links">Project Links (GitHub, demo, etc.)</label>
+                                <input type="url" id="project-links" name="links" placeholder="https://github.com/username/project">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-contact">Your Contact Information *</label>
+                                <input type="email" id="project-contact" name="contact" required placeholder="your.email@example.com">
+                            </div>
+                            <button type="submit" class="btn-secondary">
+                                <span>Submit Project</span>
+                                <i class="fas fa-rocket"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
