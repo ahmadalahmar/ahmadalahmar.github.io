@@ -31,9 +31,24 @@ function scrollToSection(sectionId) {
 // Add click event listeners to navigation links
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        scrollToSection(targetId);
+        const href = link.getAttribute('href');
+        
+        // If it's a hash link (starts with #), handle smooth scrolling
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            
+            // If it's the home link, scroll to top
+            if (targetId === 'home') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                scrollToSection(targetId);
+            }
+        }
+        // For external links (like other pages), let them work normally
     });
 });
 
