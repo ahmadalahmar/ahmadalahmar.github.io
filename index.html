@@ -37,6 +37,11 @@
                 <li class="nav-item">
                     <a href="Ahmad%20Alahmar%27s%20CV%207-25.pdf" class="nav-link" download>Download Resume</a>
                 </li>
+                <li class="nav-item admin-link" style="display: none;">
+                    <a href="admin.html" class="nav-link admin-nav-link">
+                        <i class="fas fa-cog"></i> Admin
+                    </a>
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -71,6 +76,13 @@
                         <span>Download Resume</span>
                         <i class="fas fa-file-download"></i>
                     </a>
+                </div>
+                
+                <!-- Admin Access Button (Hidden by default) -->
+                <div class="admin-access" style="display: none;">
+                    <button class="admin-toggle-btn" onclick="toggleAdminAccess()">
+                        <i class="fas fa-key"></i>
+                    </button>
                 </div>
             </div>
             <div class="hero-visual">
@@ -418,5 +430,50 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Admin Access System
+        let adminAttempts = 0;
+        const maxAttempts = 3;
+        
+        function toggleAdminAccess() {
+            if (adminAttempts >= maxAttempts) {
+                alert('Too many failed attempts. Access denied.');
+                return;
+            }
+            
+            const password = prompt('Enter admin password:');
+            if (password === 'admin2024') { // Change this to your desired password
+                showAdminAccess();
+            } else {
+                adminAttempts++;
+                alert(`Incorrect password. ${maxAttempts - adminAttempts} attempts remaining.`);
+            }
+        }
+        
+        function showAdminAccess() {
+            document.querySelector('.admin-access').style.display = 'block';
+            document.querySelector('.admin-link').style.display = 'block';
+            
+            // Add admin button to hero
+            const adminBtn = document.createElement('a');
+            adminBtn.href = 'admin.html';
+            adminBtn.className = 'btn-secondary admin-btn';
+            adminBtn.innerHTML = '<span>Admin Panel</span><i class="fas fa-cog"></i>';
+            document.querySelector('.hero-buttons').appendChild(adminBtn);
+            
+            // Hide the key button
+            document.querySelector('.admin-toggle-btn').style.display = 'none';
+        }
+        
+        // Check for admin session (simple localStorage check)
+        if (localStorage.getItem('adminSession') === 'active') {
+            showAdminAccess();
+        }
+        
+        // Store admin session when accessing admin panel
+        if (window.location.pathname.includes('admin.html')) {
+            localStorage.setItem('adminSession', 'active');
+        }
+    </script>
 </body>
 </html>

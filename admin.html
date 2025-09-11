@@ -231,6 +231,25 @@
     <script src="script.js"></script>
     <script src="blog-data.js"></script>
     <script>
+        // Admin Security Check
+        function checkAdminAccess() {
+            if (localStorage.getItem('adminSession') !== 'active') {
+                const password = prompt('Admin access required. Enter password:');
+                if (password !== 'admin2024') { // Change this to your desired password
+                    alert('Access denied. Redirecting to homepage.');
+                    window.location.href = 'index.html';
+                    return false;
+                }
+                localStorage.setItem('adminSession', 'active');
+            }
+            return true;
+        }
+        
+        // Check access on page load
+        if (!checkAdminAccess()) {
+            // Redirect will happen in checkAdminAccess
+        }
+        
         // Admin form handling
         document.getElementById('articleForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -271,6 +290,23 @@
                 errorMsg.style.display = 'none';
             }, 5000);
         }
+        
+        // Logout function
+        function adminLogout() {
+            localStorage.removeItem('adminSession');
+            alert('Logged out successfully.');
+            window.location.href = 'index.html';
+        }
+        
+        // Add logout button
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminHeader = document.querySelector('.admin-header');
+            const logoutBtn = document.createElement('button');
+            logoutBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+            logoutBtn.className = 'logout-btn';
+            logoutBtn.onclick = adminLogout;
+            adminHeader.appendChild(logoutBtn);
+        });
     </script>
 </body>
 </html>

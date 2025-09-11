@@ -1704,3 +1704,58 @@ section {
         grid-template-columns: 1fr;
     }
 }
+
+/* Admin Access Styling */
+.admin-access {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.admin-toggle-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.admin-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.admin-nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+.admin-nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+.admin-btn {
+    background: var(--gradient-secondary) !important;
+    color: white !important;
+}
+
+.logout-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}
