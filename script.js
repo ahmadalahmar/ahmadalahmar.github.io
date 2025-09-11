@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
+const contactForms = document.querySelectorAll('.contact-form');
+contactForms.forEach(contactForm => {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -190,11 +190,46 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Message sent successfully!', 'success');
-        contactForm.reset();
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        // Show loading state
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+        submitButton.disabled = true;
+        
+        // Submit form to Formspree
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotification('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
+        })
+        .finally(() => {
+            // Reset button state
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+        });
     });
-}
+});
 
 // Notification system
 function showNotification(message, type = 'info') {

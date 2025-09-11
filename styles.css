@@ -1461,6 +1461,32 @@ section {
     line-height: 1.6;
 }
 
+/* Form loading states */
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Form validation styles */
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #dc2626;
+}
+
+.form-group input:valid,
+.form-group textarea:valid {
+    border-color: #10b981;
+}
+
 /* Additional responsive styles for detailed pages */
 @media (max-width: 768px) {
     .page-title {

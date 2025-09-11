@@ -111,7 +111,7 @@
                 
                 <div class="contact-form-detailed">
                     <h2>Send me a message</h2>
-                    <form class="contact-form">
+                    <form class="contact-form" action="https://formspree.io/f/xpwnqkvg" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -128,6 +128,8 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" placeholder="Tell me about your project or how I can help..." rows="6" required></textarea>
                         </div>
+                        <input type="hidden" name="_replyto" value="ahmad.book.mansour.1999@gmail.com">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
                         <button type="submit" class="btn-primary">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane"></i>
